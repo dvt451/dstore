@@ -1,0 +1,111 @@
+.checkbox {
+	position: relative;
+	transition: all 0.3s;
+	z-index: 1;
+	&:hover{
+		background-color: #e1e1e1;
+	}
+	label{
+	   width: 100%;
+	   padding: toRem(10);
+	   span{
+		  &:nth-child(2){
+			 margin-left: auto;
+		  }
+	   }
+	}
+		// .checkbox__label
+	 
+		&__label {
+		   &::before{
+			  align-self: center;
+		   }
+		   @media (any-hover: hover){
+			  &:hover{
+				 .checkbox__product-number{
+					background-color: var(--primary);
+					color: #fff;
+				 }
+				 &::before{
+					border-width: toRem(5);
+				 }
+			  }
+		   }
+		}
+	 
+		// .checkbox__text
+	 
+		&__text {
+		}
+	 
+		&__product-number{
+		   padding: toRem(4);
+		   border-radius: toRem(3);
+		   transition: all 0.3s;
+		}
+	// .checkbox__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+      
+		// &:focus + .checkbox__label:before {
+		// 	box-shadow: 0 0 5px #000;
+		// }
+		&:checked + .checkbox__label::after {
+			background-color: #000;
+		}
+      &:checked + label{
+         .checkbox__product-number{
+			background-color: #000;
+            color: #fff;
+         }
+         &::before{
+         }
+      }
+      &:checked + label:hover{
+         &::after{
+			background-color: #000;
+         }
+         &::before{
+            border-width: toRem(3);
+         }
+      }
+
+      // &:checked + .checkbox__label:after {
+		// 	content: "\2714";
+      //    color: #000;
+		// }
+	}
+	// .checkbox__label
+	&__label {
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		gap: 10px;
+		&:before {
+			content: "";
+			display: block;
+			align-self: flex-start;
+			flex: 0 0 toRem(20);
+			width: toRem(20);
+			height: toRem(20);
+			border: toRem(1) solid rgb(69, 69, 69);
+         	transition: all 0.2s linear;
+		}
+      &:after {
+			content: "";
+         	position: absolute;
+         	left: toRem(10);
+			width: toRem(10);
+			height: toRem(10);
+         	transform: translate(50%,0);
+		}
+	}
+	// .checkbox__text
+	&__text {
+      color: #000;
+	}
+}

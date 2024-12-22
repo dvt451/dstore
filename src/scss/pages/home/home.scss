@@ -1,0 +1,90 @@
+@import "hero";
+@import "advantages";
+@import "brand";
+.slider{
+    .home-title{
+        margin-bottom: toRem(35);
+    }
+}
+.home-page-bottom {
+    padding-bottom: toRem(100);
+    // .home-page-bottom__container
+
+    &__container {
+        display: flex;
+        gap: toRem(30);
+        @media (max-width:$tablet){
+            flex-direction: column;
+        }
+    }
+
+    // .home-page-bottom__column
+
+    &__column {
+        border-radius: toRem(10);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: toRem(60) toRem(40) toRem(40) toRem(30);
+        background-color: #eaf6f6;
+        background-blend-mode: darken;
+
+        &:nth-child(1){
+            flex: 1 1 40%;
+        }
+        &:nth-child(2){
+            flex: 1 1 60%;
+        }
+        input{
+            height: toRem(40);
+        }
+    }
+
+    &__block{
+        display: flex;
+        flex-direction: column;
+        gap: toRem(20);
+        max-width: toRem(332);
+    }
+
+    .button{
+        padding: toRem(13) toRem(40);
+        transition: all 0.2s ease;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: #000;
+            }
+        }
+    }
+
+    // .home-page-bottom__title
+
+    &__title {
+        font-size: toRem(21);
+        font-weight: 600;
+        text-transform: capitalize;
+        color: #000;
+        line-height: normal;
+    }
+
+    // .home-page-bottom__text
+
+    &__text {
+        color: #111111A6;
+        font-weight: 400;
+        max-width: toRem(332);
+    }
+
+    // .home-page-bottom__link
+
+    &__link {
+        color: var(--primary);
+        font-size: toRem(17);
+        font-weight: 600;
+        @media (any-hover: hover){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

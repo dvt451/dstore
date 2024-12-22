@@ -1,0 +1,78 @@
+.select {
+  position: relative;
+  color: #000;
+  z-index: 1;
+  min-width: toRem(250);
+}
+.select._active {
+  z-index: 2;
+}
+.select .option {
+  background-color: #fcf9f9;
+  padding: toRem(10);
+}
+.select .option._active {
+  background-color: #00aa63;
+  color: #fff;
+}
+.select .option-list {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+}
+.select .option-list.option-open {
+  display: block;
+}
+.select .selected {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: toRem(1) solid #e1e1e1;
+}
+.select .selected.option-open {
+  background-color: #00aa63;
+  color: #fff;
+  font-weight: 700;
+}
+.select .selected-icon {
+  transition: all 0.3s;
+  position: relative;
+  width: toRem(12);
+  height: toRem(12);
+}
+.select .selected-icon svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.select .selected-icon path {
+  fill: #000;
+}
+.select .selected-icon.active {
+  transform: rotate(-180deg);
+}
+.select .option-list .option {
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+  border: toRem(1) solid #e1e1e1;
+}
+.select .option-list .option:first-child {
+  border-top: none;
+}
+.select .option-list .option:not(:last-child) {
+  border-bottom: none;
+}
+@media (any-hover: hover) {
+  .select .option-list .option:hover {
+    background-color: #00aa63;
+    color: #fff;
+  }
+}

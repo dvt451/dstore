@@ -1,0 +1,12 @@
+main {
+	padding-top: toRem(168);
+	@media (max-width: $tablet) {
+		padding-top: toRem(118);
+	}
+	@media (max-width: $mobileSmall) {
+		padding-top: toRem(172);
+	}
+}
+.slider {
+	padding-block: toRem(60);
+}

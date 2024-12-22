@@ -1,0 +1,78 @@
+@import "base/lenis";
+@import "libs/select";
+@import "base/checkbox";
+
+// Сниппет (HTML): ibg (div картинкой и классами)
+[class*="-ibg"] {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+[class*="-ibg--contain"] {
+	img {
+		object-fit: contain;
+	}
+}
+
+// .rub:after {
+// 	content: "₽";
+//  }
+
+.usd::before {
+	content: "$";
+ }
+
+// @extend %имя_шаблона;
+// Сніппет (SCSS): ex
+
+// Responsive Video
+%responsiveVideo {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+// Video Background
+%videoBackground {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+// Gray filter
+%grayfilter {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	@media (any-hover: hover) {
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
+}

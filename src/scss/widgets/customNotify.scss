@@ -1,0 +1,46 @@
+.Toastify {
+	// .Toastify__toast
+
+	&__toast {
+		overflow: hidden;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		&--warning {
+			background-color: rgb(179, 121, 14);
+			color: #fff;
+		}
+		&--success {
+			background-color: var(--primary);
+			color: #fff;
+		}
+		&--info {
+			.Toastify__progress-bar {
+				&--bg {
+					background-color: var(--primary);
+				}
+			}
+		}
+		&-icon {
+			font-size: toRem(30);
+		}
+	}
+
+	&__close-button {
+		color: #fff;
+	}
+
+	// .Toastify__progress-bar
+
+	&__progress-bar {
+		background-color: #fff;
+		opacity: 1;
+		right: 0;
+		&--bg {
+			opacity: 1;
+			background-color: #000;
+		}
+	}
+
+	&__progress-bar--wrp {
+		border-radius: 0;
+	}
+}
