@@ -46,7 +46,9 @@
 		}
 	}
 	h1 {
-		padding-top: toRem(20);
+		@media (max-width: $mobileSmall) {
+			padding-top: toRem(20);
+		}
 		.logo {
 			@include adaptiveValue("font-size", 30, 25);
 			@media (max-width: $mobileSmall) {

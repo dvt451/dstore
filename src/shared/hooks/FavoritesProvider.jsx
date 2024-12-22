@@ -5,7 +5,7 @@ import { products } from '../data/products';
 const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
-	const [favorites, setFavorites] = useState([products[1], products[2]]);
+	const [favorites, setFavorites] = useState([]);
 
 	const toggleFavorite = (product) => {
 		const isAlreadyFavorite = favorites.some((item) => item.id === product.id);
