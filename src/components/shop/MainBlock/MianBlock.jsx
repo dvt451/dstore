@@ -26,7 +26,7 @@ export default function MianBlock({ setFilterOpenState, filterOpenState }) {
 				<ItemsPerPageView />
 				<button onClick={() => {
 					setFilterOpenState(!filterOpenState)
-				}} className='filter-button button'>Filter</button>
+				}} className='filter-button button'>{filterOpenState ? 'Close filter' : "Open filter"}</button>
 			</div>
 			<div className='product-block'>
 				{!loading ? <>
