@@ -164,6 +164,7 @@ export const FilterProvider = ({ children }) => {
 	};
 
 	const handleAvailabilityChange = (e) => {
+		setLoading(true)
 		const { value } = e.target;
 		setFilters((prevFilters) => ({
 			...prevFilters,
@@ -171,6 +172,9 @@ export const FilterProvider = ({ children }) => {
 		}));
 		setCurrentPage(1); // Reset to the first page when filter changes
 		scrollToFilterShop()
+		setTimeout(() => {
+			setLoading(false)
+		}, 500);
 	};
 
 

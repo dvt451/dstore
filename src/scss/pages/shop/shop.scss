@@ -9,13 +9,13 @@
 	.filters {
 		position: sticky;
 		top: 0;
+		transition: all 0.3s ease;
+		background-color: #fff;
 		@media (min-width: $tablet) {
 			top: toRem(168);
 			width: toRem(0);
 			flex: 0 0 toRem(0);
 		}
-		transition: all 0.3s ease;
-
 		&__block {
 			overflow-x: auto;
 			@media (min-width: $tablet) {
@@ -27,7 +27,9 @@
 			gap: 20px;
 			background-color: #fff;
 			padding-block: toRem(20);
-			margin-right: toRem(20);
+			@media (min-width: $tablet) {
+				margin-right: toRem(20);
+			}
 
 			&::-webkit-scrollbar {
 				width: 0;
@@ -39,7 +41,6 @@
 			}
 			@media (max-width: $tablet) {
 				padding: toRem(20);
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 			}
 		}
 		@media (max-width: $tablet) {
@@ -49,7 +50,7 @@
 			height: 100vh;
 			max-height: max-content;
 			min-width: toRem(350);
-			transform: translateX(calc(-100% + toRem(20)));
+			transform: translateX(-100%);
 		}
 		&._active {
 			@media (min-width: $tablet) {
@@ -62,13 +63,14 @@
 			}
 			@media (max-width: $tablet) {
 				transform: translateX(0);
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 			}
 		}
 		&__opener {
 			position: absolute;
 			top: 50%;
 			right: 0;
-			transform: translate(calc(50% - toRem(20)), -50%);
+			transform: translate(50%, -50%);
 			width: toRem(100);
 			height: toRem(100);
 			border: toRem(1) solid #000;
@@ -141,6 +143,10 @@
 			width: 0;
 			padding: 0;
 			overflow: auto;
+		}
+		@media (max-width: $tablet) {
+			width: calc(100% - toRem(40));
+			margin-left: toRem(20);
 		}
 	}
 
@@ -231,6 +237,10 @@
 	}
 	.loading {
 		padding-top: toRem(50);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--primary);
 	}
 	.no-products-found {
 		width: 100%;

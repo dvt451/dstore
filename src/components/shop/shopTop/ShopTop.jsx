@@ -8,14 +8,14 @@ export default function ShopTop() {
 	useEffect(() => {
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: ".shop-top-block",
+				trigger: ".shop-top-block__column",
 				start: "top bottom",
 				end: "bottom top",
 				scrub: true,
 			}
 		})
 		tl.from(".shop-top-block__image img", {
-			scale: 1.3,
+			scale: 1.6,
 		})
 	}, [])
 	return (

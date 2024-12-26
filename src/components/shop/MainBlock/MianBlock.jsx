@@ -48,9 +48,9 @@ export default function MianBlock({ setFilterOpenState, filterOpenState }) {
 							<Pagination />
 						</div>
 						:
-						<Loading />
+						<Loading loading={pageLoading} />
 					} </> :
-					<Loading />
+					<Loading loading={loading} />
 				}
 			</div>
 		</section>
