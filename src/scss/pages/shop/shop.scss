@@ -4,6 +4,9 @@
 	&__main {
 		display: flex;
 		align-items: start;
+		&.filter-opened {
+			gap: toRem(20);
+		}
 	}
 
 	.filters {
@@ -27,9 +30,6 @@
 			gap: 20px;
 			background-color: #fff;
 			padding-block: toRem(20);
-			@media (min-width: $tablet) {
-				margin-right: toRem(20);
-			}
 
 			&::-webkit-scrollbar {
 				width: 0;
@@ -58,7 +58,7 @@
 				flex: 0 0 toRem(320);
 				.reset-button {
 					padding: toRem(15) toRem(20);
-					width: calc(100% - toRem(20));
+					width: 100%;
 				}
 			}
 			@media (max-width: $tablet) {
@@ -143,6 +143,7 @@
 			width: 0;
 			padding: 0;
 			overflow: auto;
+			white-space: nowrap;
 		}
 		@media (max-width: $tablet) {
 			width: calc(100% - toRem(40));

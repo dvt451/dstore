@@ -173,7 +173,7 @@ const ShopPage = () => {
 			<main className="shop">
 				<div className="shop__container">
 					<ShopTop />
-					<div className='shop__main'>
+					<div className={`shop__main${filterOpenState ? " filter-opened" : ""}`}>
 						<aside className={`filters${filterOpenState ? " _active" : ""}`}>
 							<button onClick={resetFilters} className="reset-button">Reset Filters</button>
 							<div className='filters__block'>
