@@ -1,8 +1,9 @@
 .shop {
 	&__container {
+	}
+	&__main {
 		display: flex;
 		align-items: start;
-		// gap: toRem(20);
 	}
 
 	.filters {
@@ -18,7 +19,7 @@
 		&__block {
 			overflow-x: auto;
 			@media (min-width: $tablet) {
-				max-height: calc(100vh - toRem(168));
+				max-height: calc(100vh - toRem(248));
 			}
 			max-height: 100vh;
 			display: flex;
@@ -54,6 +55,10 @@
 			@media (min-width: $tablet) {
 				width: toRem(320);
 				flex: 0 0 toRem(320);
+				.reset-button {
+					padding: toRem(15) toRem(20);
+					width: calc(100% - toRem(20));
+				}
 			}
 			@media (max-width: $tablet) {
 				transform: translateX(0);
@@ -118,6 +123,7 @@
 	.reset-button {
 		display: inline-block;
 		padding: toRem(15) toRem(20);
+		width: calc(100% - toRem(20));
 		height: toRem(60);
 		background-color: var(--primary); /* A bold red color */
 		color: #ffffff; /* White text */
@@ -126,8 +132,16 @@
 		text-align: center;
 		border: none;
 		border-radius: 5px;
-		cursor: pointer;
-		transition: opacity 0.3s ease;
+		margin-top: toRem(20);
+		transition: all 0.3s ease;
+		@media (min-width: $tablet) {
+			&::-webkit-scrollbar {
+				width: 0;
+			}
+			width: 0;
+			padding: 0;
+			overflow: auto;
+		}
 	}
 
 	.reset-button:hover {
@@ -382,3 +396,4 @@
 		}
 	}
 }
+@import "./shopTop";

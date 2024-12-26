@@ -4,6 +4,7 @@
 	width: 100%;
 	z-index: 10;
 	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 	.header-top {
 		&__container {
 			display: flex;
@@ -16,13 +17,13 @@
 				flex-wrap: wrap;
 				row-gap: 0;
 			}
-			@media (max-width: $mobileSmall) {
-				flex-direction: column;
-				row-gap: toRem(20);
-				> div {
-					width: 100%;
-				}
-			}
+			// @media (max-width: $mobileSmall) {
+			// 	flex-direction: column;
+			// 	row-gap: toRem(20);
+			// 	> div {
+			// 		width: 100%;
+			// 	}
+			// }
 		}
 	}
 	.phone-widget {
@@ -46,9 +47,6 @@
 		}
 	}
 	h1 {
-		@media (max-width: $mobileSmall) {
-			padding-top: toRem(20);
-		}
 		.logo {
 			@include adaptiveValue("font-size", 30, 25);
 			@media (max-width: $mobileSmall) {
@@ -104,9 +102,6 @@
 	@media (max-width: $tablet) {
 		gap: toRem(30);
 		padding-bottom: 0;
-	}
-	@media (max-width: $mobileSmall) {
-		flex: 1 1 auto;
 	}
 }
 .categories {

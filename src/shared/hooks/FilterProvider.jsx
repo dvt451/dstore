@@ -157,10 +157,7 @@ export const FilterProvider = ({ children }) => {
 			};
 		});
 		setCurrentPage(1)
-		const filterSection = document.body;
-		filterSection?.scrollIntoView({
-			behavior: 'smooth',
-		});
+		scrollToFilterShop()
 		setTimeout(() => {
 			setLoading(false)
 		}, 500);
@@ -173,10 +170,7 @@ export const FilterProvider = ({ children }) => {
 			availability: value, // Update availability filter
 		}));
 		setCurrentPage(1); // Reset to the first page when filter changes
-		const filterSection = document.body;
-		filterSection?.scrollIntoView({
-			behavior: 'smooth',
-		});
+		scrollToFilterShop()
 	};
 
 
@@ -189,6 +183,17 @@ export const FilterProvider = ({ children }) => {
 	};
 	{/* ************* ReactSlider ********************************************************************************************************* */ }
 
+	function scrollToFilterShop() {
+		const filterSection = document.querySelector('.shop__main'); // Replace '.slider' with your section's selector
+		if (filterSection) {
+			const sectionPosition = filterSection.offsetTop; // Get the section's top position
+			const scrollTarget = sectionPosition - 170; // Add 100px to the section's position
+			window.scrollTo({
+				top: scrollTarget,
+				behavior: 'smooth', // Smooth scrolling
+			});
+		}
+	}
 
 	const filteredProducts = products.filter((product) => {
 		const matchesCategory = categoryFilter ? product.category === categoryFilter : true;
@@ -246,10 +251,7 @@ export const FilterProvider = ({ children }) => {
 
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
-		const filterSection = document.body;
-		filterSection?.scrollIntoView({
-			behavior: 'smooth',
-		});
+		scrollToFilterShop()
 	};
 
 	const handleSearchChange = (e) => {
@@ -285,10 +287,7 @@ export const FilterProvider = ({ children }) => {
 		setSearchTerm('')
 		setCurrentPage(1)
 		setFilters(resetFilters);
-		const filterSection = document.body;
-		filterSection?.scrollIntoView({
-			behavior: 'smooth',
-		});
+		scrollToFilterShop()
 		setTimeout(() => {
 			setLoading(false)
 		}, 500);

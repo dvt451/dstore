@@ -168,17 +168,6 @@ const CheckoutPage = () => {
 						</form>
 					</section>
 
-					{/* Shipping Method */}
-					<section className="checkout-section">
-						<h2>Shipping Method</h2>
-						<select
-							value={shippingInfo.shippingMethod}
-							onChange={(e) => handleShippingMethodChange(e.target.value)}
-						>
-							<option value="Standard">Standard (5-7 days)</option>
-							<option value="Express">Express (2-3 days)</option>
-						</select>
-					</section>
 
 					{/* Order Summary */}
 					<section className="checkout-section order-summary">
@@ -213,7 +202,7 @@ const CheckoutPage = () => {
 						</div>
 						<div className="summary-item">
 							<span>Tax:</span>
-							<span> ${orderSummary.tax}</span>
+							<span> ${orderSummary.tax.toFixed(2)}</span>
 						</div>
 						<div className="summary-item total">
 							<span>Total:</span>

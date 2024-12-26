@@ -10,6 +10,7 @@ import { useFilter } from '../../shared/hooks/FilterProvider';
 import MianBlock from './MainBlock/MianBlock';
 import RadioFilter from './Filter/RadioFilter';
 import { CiFilter } from "react-icons/ci";
+import ShopTop from './shopTop/ShopTop';
 
 const ShopPage = () => {
 	const {
@@ -171,21 +172,20 @@ const ShopPage = () => {
 			<Header />
 			<main className="shop">
 				<div className="shop__container">
-					<aside className={`filters${filterOpenState ? " _active" : ""}`}>
-						<div className='filters__block'>
-							<button onClick={() => {
-								setFilterOpenState(!filterOpenState)
-							}} className="filters__opener"><CiFilter /></button>
-							<button onClick={resetFilters} className="reset-button">
-								<span>Reset Filters</span>
-							</button>
-							{/* <PriceFilter /> */}
-							<PriceReactSlider />
-							<RadioFilter />
-							{renderCategoryFilters()}
-						</div>
-					</aside>
-					<MianBlock setFilterOpenState={setFilterOpenState} filterOpenState={filterOpenState} />
+					<ShopTop />
+					<div className='shop__main'>
+						<aside className={`filters${filterOpenState ? " _active" : ""}`}>
+							<button onClick={resetFilters} className="reset-button">Reset Filters</button>
+							<div className='filters__block'>
+								<button onClick={() => { setFilterOpenState(!filterOpenState) }} className="filters__opener"><CiFilter /></button>
+								{/* <PriceFilter /> */}
+								<PriceReactSlider />
+								<RadioFilter />
+								{renderCategoryFilters()}
+							</div>
+						</aside>
+						<MianBlock setFilterOpenState={setFilterOpenState} filterOpenState={filterOpenState} />
+					</div>
 				</div>
 			</main>
 			<Footer />
