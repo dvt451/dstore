@@ -29,7 +29,17 @@ export default function ShopTop() {
 							<span>now on sale</span>
 							<p>45% Flat</p>
 						</div>
-						<button className="shop-top-block__button button"><span>Shop now</span></button>
+						<button onClick={() => {
+							const filterSection = document.querySelector('.shop__main'); // Replace '.slider' with your section's selector
+							if (filterSection) {
+								const sectionPosition = filterSection.offsetTop; // Get the section's top position
+								const scrollTarget = sectionPosition - 170; // Add 100px to the section's position
+								window.scrollTo({
+									top: scrollTarget,
+									behavior: 'smooth', // Smooth scrolling
+								});
+							}
+						}} className="shop-top-block__button button"><span>Shop now</span></button>
 					</div>
 				</div>
 				<div className='shop-top-block__column'>
