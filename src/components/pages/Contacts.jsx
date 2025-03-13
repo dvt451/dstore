@@ -5,8 +5,9 @@ import { GiFamilyHouse } from "react-icons/gi";
 import { PiPhoneCall } from "react-icons/pi";
 import Select from '../../widgets/components/Select';
 import Footer from '../../widgets/footer/Footer';
+import Transition from '../../features/Transition';
 
-export default function Contacts() {
+const Contacts = () => {
 	const options = [
 		"Technical help",
 		"Pre-Sale Questions",
@@ -56,3 +57,4 @@ export default function Contacts() {
 		</>
 	)
 }
+export default Transition(Contacts);

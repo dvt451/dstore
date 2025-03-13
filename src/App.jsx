@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './components/home/HomePage';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './scss/style.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/css/parallax"
 
+import HomePage from './components/home/HomePage';
 import ShopPage from './components/shop/ShopPage';
 import ProductPage from './components/pages/ProductPage';
 import CartPage from './components/Cart/CartPage';
@@ -18,17 +18,18 @@ import Contacts from './components/pages/Contacts';
 import Wishlist from './components/pages/Wishlist';
 import { AppProviders } from './components/Providers';
 import { Bounce, ToastContainer } from 'react-toastify';
+import { AnimatePresence } from 'framer-motion';
 
 
 function App() {
-
+	const location = useLocation()
 	return (
 		<>
-			<BrowserRouter>
-				<AppProviders>
-					<ScrollToTop />
-					<Routes>
-						<Route element={<HomePage />} path="/" />
+			<AppProviders>
+				<ScrollToTop />
+				<AnimatePresence mode='wait'>
+					<Routes location={location} key={location.pathname}>
+						<Route element={<HomePage />} index />
 						<Route element={<ShopPage />} path="/shop" />
 						<Route element={<ProductPage />} path="/product/:id" />
 						<Route element={<CartPage />} path="/cart" />
@@ -37,9 +38,10 @@ function App() {
 						<Route element={<LoginSignupPage />} path="/login" />
 						<Route element={<Contacts />} path="/contacts" />
 						<Route element={<Wishlist />} path="/wishlist" />
+						<Route element={<HomePage />} path="/*" />
 					</Routes>
-				</AppProviders>
-			</BrowserRouter>
+				</AnimatePresence>
+			</AppProviders>
 			<ToastContainer
 				position="top-right"
 				autoClose={1000}

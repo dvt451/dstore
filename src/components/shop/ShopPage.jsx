@@ -11,6 +11,7 @@ import MianBlock from './MainBlock/MianBlock';
 import RadioFilter from './Filter/RadioFilter';
 import { CiFilter } from "react-icons/ci";
 import ShopTop from './shopTop/ShopTop';
+import Transition from '../../features/Transition';
 
 const ShopPage = () => {
 	const {
@@ -193,4 +194,4 @@ const ShopPage = () => {
 	);
 };
 
-export default ShopPage;
+export default Transition(ShopPage);

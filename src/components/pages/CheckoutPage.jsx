@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../widgets/header/Header';
 import Footer from '../../widgets/footer/Footer';
 import { useCart } from '../../shared/hooks/CartProvider';
+import { BiError } from "react-icons/bi";
+import { MdError } from "react-icons/md";
+import Transition from '../../features/Transition';
 
 const CheckoutPage = () => {
 	const { cart, orderProduct } = useCart(); // Get cart from context
@@ -27,6 +30,9 @@ const CheckoutPage = () => {
 		shippingCost: 20,
 		tax: 0,
 	});
+
+	const [checkoutResult, setCheckoutResult] = useState(false)
+	const [checkoutResultPopup, setCheckoutResultPopup] = useState(false)
 
 	useEffect(() => {
 		const calculateCartSummary = () => {
@@ -58,12 +64,16 @@ const CheckoutPage = () => {
 			!paymentInfo.expiryDate ||
 			!paymentInfo.cvv
 		) {
-			alert("Please fill in all required fields.");
+			// alert("Please fill in all required fields.");
+			setCheckoutResult(false)
+			setCheckoutResultPopup(true)
 			return;
 		}
-
 		// Proceed with order placement
-		alert('Order placed successfully!');
+		// alert('Order placed successfully!');
+		setCheckoutResult(true)
+		setCheckoutResultPopup(true)
+		// Show Popup of result
 	};
 
 	const handleShippingMethodChange = (method) => {
@@ -168,7 +178,6 @@ const CheckoutPage = () => {
 						</form>
 					</section>
 
-
 					{/* Order Summary */}
 					<section className="checkout-section order-summary">
 						<h2>Order Summary</h2>
@@ -212,10 +221,24 @@ const CheckoutPage = () => {
 
 					<button className="checkout-btn" onClick={handleCheckout}>Confirm Order</button>
 				</div>
+				<div className={`checkout-result${checkoutResultPopup ? "" : " hidden"}`}>
+					<div className={`checkout-result__block${checkoutResult ? ' procced' : ''}`}>
+						{
+							checkoutResult ?
+								<MdError /> :
+								<BiError />
+						}
+
+						<p className="checkout-result__text">{checkoutResult ? "Order placed successfully!" : "Please fill in all required fields."}</p>
+						<button onClick={() => {
+							setCheckoutResultPopup(false)
+						}} className="checkout-result__button button">Close</button>
+					</div>
+				</div>
 			</main>
 			<Footer />
 		</>
 	);
 };
 
-export default CheckoutPage;
+export default Transition(CheckoutPage);

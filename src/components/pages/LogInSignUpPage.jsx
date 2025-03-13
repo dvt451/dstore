@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // To navigate to other pages (like Home, Forgot Password, etc.)
 import Header from '../../widgets/header/Header';
 import Footer from '../../widgets/footer/Footer';
+import Transition from '../../features/Transition';
 
 const LoginSignupPage = () => {
 	const [isSignup, setIsSignup] = useState(false); // State to toggle between Login and Signup forms
@@ -92,4 +93,4 @@ const LoginSignupPage = () => {
 	);
 };
 
-export default LoginSignupPage;
+export default Transition(LoginSignupPage);

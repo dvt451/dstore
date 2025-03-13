@@ -8,6 +8,7 @@ import Banner from './Banner';
 import Advantages from './advantages/Advantages';
 import PopularBrands from './PopularBrands';
 import HomePageBottom from './HomePageBottom';
+import Transition from '../../features/Transition';
 
 const HomePage = () => {
 
@@ -29,4 +30,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default Transition(HomePage);

@@ -3,6 +3,7 @@ import Header from '../../widgets/header/Header';
 import Footer from '../../widgets/footer/Footer';
 import { products } from '../../shared/data/products'; // Importing the products data
 import { Link } from 'react-router-dom';
+import Transition from '../../features/Transition';
 
 const UserAccountPage = () => {
 	// Sample user data (in a real app, this would come from API)
@@ -151,4 +152,4 @@ const UserAccountPage = () => {
 	);
 };
 
-export default UserAccountPage;
+export default Transition(UserAccountPage);

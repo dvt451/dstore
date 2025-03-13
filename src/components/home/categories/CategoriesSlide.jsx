@@ -24,7 +24,7 @@ export default function CategoriesSlide() {
 				<div className="slider__slider">
 					<Swiper
 						modules={[Navigation, Pagination]}
-						spaceBetween={20}
+						spaceBetween={10}
 						slidesPerView={6}
 						breakpoints={{
 							320: { slidesPerView: 2 }, // For screens >= 480px

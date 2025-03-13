@@ -7,3 +7,24 @@ main {
 .slider {
 	padding-block: toRem(60);
 }
+
+.slide-in {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: var(--primary);
+	transform-origin: left;
+	z-index: 20;
+}
+.slide-out {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: var(--primary);
+	transform-origin: right;
+	z-index: 20;
+}

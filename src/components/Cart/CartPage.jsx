@@ -6,6 +6,7 @@ import Header from '../../widgets/header/Header';
 import Footer from '../../widgets/footer/Footer';
 import { IoTrashOutline } from "react-icons/io5";
 import { toast } from 'react-toastify';
+import Transition from '../../features/Transition';
 
 const CartPage = () => {
 	const { cart, setOrderProductFromCart, remove, updateQuantity } = useCart();
@@ -102,4 +103,4 @@ const CartPage = () => {
 	);
 };
 
-export default CartPage;
+export default Transition(CartPage);

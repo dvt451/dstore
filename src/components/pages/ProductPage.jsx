@@ -9,6 +9,7 @@ import Footer from '../../widgets/footer/Footer';
 import { useGlobalContext } from '../../shared/hooks/GlobalProvider';
 import { FaRegHeart } from 'react-icons/fa';
 import { useFavorites } from '../../shared/hooks/FavoritesProvider';
+import Transition from '../../features/Transition';
 
 const ProductPage = () => {
 	const { id } = useParams();
@@ -176,4 +177,4 @@ const ProductPage = () => {
 	);
 };
 
-export default ProductPage;
+export default Transition(ProductPage);

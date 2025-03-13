@@ -18,16 +18,30 @@
 	}
 }
 .slide {
+	display: inline-block;
 	width: 100%;
+	@media (any-hover: hover) {
+		&:hover {
+			.slide__image {
+				box-shadow: 0 0 5px var(--primary);
+			}
+			img {
+				scale: 1.1;
+			}
+		}
+	}
 
 	&__image {
 		@include adaptiveValue("height", 266, 140);
 		background-color: #f7f7f7;
 		border-radius: toRem(10);
+		transition: all 0.3s ease;
+		margin: toRem(5) toRem(5) 0 toRem(5);
 		img {
 			padding: toRem(15);
 			mix-blend-mode: darken;
 			z-index: 0;
+			transition: all 0.3s ease;
 		}
 	}
 	// .slide__details

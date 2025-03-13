@@ -318,20 +318,19 @@
 }
 
 .deals-cart {
-	// .deals-cart__image
-
-	&__image {
-		width: 100%;
-		height: toRem(290);
-		@media (any-hover: hover) {
-			&:hover {
-				.product-actions {
-					opacity: 1;
-					visibility: visible;
-					top: 50%;
-				}
+	@media (any-hover: hover) {
+		&:hover {
+			.deals-cart__image {
+				scale: 1;
 			}
 		}
+	}
+	// .deals-cart__image
+	&__image {
+		width: 100%;
+		scale: 0.9;
+		height: toRem(290);
+		transition: all 0.3s ease;
 	}
 
 	// .deals-cart__details
@@ -348,6 +347,7 @@
 
 	&__name {
 		color: #000;
+		transition: all 0.3s ease;
 	}
 
 	// .deals-cart__price

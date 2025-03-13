@@ -149,6 +149,14 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			@media (any-hover: hover) {
+				&:hover {
+					.slide__image {
+						scale: 1;
+					}
+				}
+			}
+			transition: all 0.3s ease;
 			// .slide__image
 
 			&__image {
