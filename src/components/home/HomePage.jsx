@@ -11,8 +11,6 @@ import HomePageBottom from './HomePageBottom';
 import Transition from '../../features/Transition';
 
 const HomePage = () => {
-
-
 	return (
 		<div className="wrapper">
 			<Header />
