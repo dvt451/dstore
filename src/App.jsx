@@ -9,7 +9,7 @@ import "swiper/css/parallax"
 import HomePage from './components/home/HomePage';
 import ShopPage from './components/shop/ShopPage';
 import ProductPage from './components/pages/ProductPage';
-import CartPage from './components/Cart/CartPage';
+import CartPage from './components/pages/CartPage';
 import CheckoutPage from './components/pages/CheckoutPage';
 import UserAccountPage from './components/pages/UserAccountPage';
 import ScrollToTop from './features/ScrollToTop';
@@ -19,6 +19,7 @@ import Wishlist from './components/pages/Wishlist';
 import { AppProviders } from './components/Providers';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { AnimatePresence } from 'framer-motion';
+import DvtBadge from './widgets/DvtBadge';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 		<>
 			<AppProviders>
 				<ScrollToTop />
+				<DvtBadge />
 				<AnimatePresence mode='wait'>
 					<Routes location={location} key={location.pathname}>
 						<Route element={<HomePage />} index />

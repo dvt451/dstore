@@ -8,9 +8,10 @@ import { useFavorites } from '../../shared/hooks/FavoritesProvider';
 import { useCart } from '../../shared/hooks/CartProvider';
 import { FaShoppingCart } from 'react-icons/fa';
 import { BiSolidError } from "react-icons/bi";
+import Transition from '../../features/Transition';
 
 
-export default function Wishlist() {
+const Wishlist = () => {
 	const { favorites } = useFavorites();
 	const { cart, setCart } = useCart();
 
@@ -103,3 +104,4 @@ export default function Wishlist() {
 		</div>
 	);
 }
+export default Transition(Wishlist);
