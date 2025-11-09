@@ -41,7 +41,7 @@ const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
 	const location = useLocation();
 	const queryParams = new URLSearchParams(location.search);
-	const categoryFilter = queryParams.get('category');
+	const [categoryFilter, setCategoryFilter] = useState(queryParams.get('category') || '');
 
 	const [loading, setLoading] = useState(false)
 	const [pageLoading, setPageLoading] = useState(false)
@@ -267,6 +267,11 @@ export const FilterProvider = ({ children }) => {
 		}, 500);
 	};
 
+	const handleCategoryChange = (category) => {
+		setCategoryFilter(category === categoryFilter ? '' : category);
+		setCurrentPage(1);
+	};
+
 	const resetFilters = () => {
 		setLoading(true)
 		const resetFilters = {
@@ -298,6 +303,7 @@ export const FilterProvider = ({ children }) => {
 	};
 	const resetAll = () => {
 		resetFilters()
+		setCategoryFilter('');
 		setProductsPerPage(allProductsPageNumbers[0])
 		setItemPerPageActive(0)
 		setPriceRange({
@@ -310,6 +316,7 @@ export const FilterProvider = ({ children }) => {
 		resetFilters()
 		setProductsPerPage(categoriesProdutsPageNumbers[0])
 		setItemPerPageActive(0)
+		setCategoryFilter('');
 	}
 
 	return (
@@ -351,7 +358,9 @@ export const FilterProvider = ({ children }) => {
 			defaultProductsPerPage,
 			resetAll,
 			setSearchTerm,
-			resetCategories
+			resetCategories,
+			setCategoryFilter,
+			handleCategoryChange,
 		}}>
 			{children}
 		</FilterContext.Provider>

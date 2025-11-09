@@ -7,7 +7,9 @@ const ScrollToTop = () => {
 	useEffect(() => {
 		// Scroll to the top of the page whenever the route changes
 		if (location.pathname !== "/shop") {
-			window.scrollTo(0, 0);
+			setTimeout(() => {
+				window.scrollTo(0, 0);
+			}, 500);
 		}
 
 	}, [location]);

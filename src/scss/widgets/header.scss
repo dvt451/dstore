@@ -172,12 +172,12 @@
 		}
 		li {
 			&:not(:last-child) {
-				a {
+				button {
 					border-bottom: toRem(1) solid #e1e1e1;
 				}
 			}
 		}
-		a {
+		button {
 			display: flex;
 			align-items: center;
 			gap: toRem(10);

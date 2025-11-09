@@ -6,7 +6,7 @@ import { categories, products, productsByCategory } from '../../../shared/data/p
 import { Link } from 'react-router-dom';
 import { useFilter } from '../../../shared/hooks/FilterProvider';
 
-export default function ShopCategories() {
+export default function ShopCategories({ selectedCategory, onCategoryChange }) {
 	const { resetAll, resetCategories } = useFilter()
 
 	const categoriesImagesLink = [
@@ -18,7 +18,15 @@ export default function ShopCategories() {
 		products[27].image,
 		products[61].image,
 	]
-
+	const handleCategoryClick = (category) => {
+		if (category === 'all') {
+			resetAll();
+			onCategoryChange(''); // Сбрасываем категорию
+		} else {
+			resetCategories();
+			onCategoryChange(category); // Устанавливаем категорию
+		}
+	};
 	return (
 		<section className='slider'>
 			<div className="slider__slider">
@@ -39,22 +47,22 @@ export default function ShopCategories() {
 					}}
 				>
 					<SwiperSlide >
-						<Link to={`/shop`} onClick={resetAll} className="slide">
+						<button onClick={() => handleCategoryClick('all')} className="slide">
 							<div className='slide__image slide__image_all -ibg--contain'>All</div>
 							<div className="slide__details">
 								<h4 className="slide__name">Shop All</h4>
 							</div>
-						</Link>
+						</button>
 					</SwiperSlide>
 					{
 						[...categories, ...categories].map((item, i) => (
 							<SwiperSlide key={i}>
-								<Link to={`/shop?category=${item}`} onClick={resetCategories} className="slide">
+								<button onClick={() => handleCategoryClick(item)} className="slide">
 									<div className='slide__image -ibg--contain'><img src={[...categoriesImagesLink, ...categoriesImagesLink][i]} alt="Image" /></div>
 									<div className="slide__details">
 										<h4 className="slide__name">{item}</h4>
 									</div>
-								</Link>
+								</button>
 							</SwiperSlide>
 						))
 					}

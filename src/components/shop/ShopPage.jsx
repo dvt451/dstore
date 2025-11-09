@@ -15,7 +15,6 @@ import Transition from '../../features/Transition';
 
 const ShopPage = () => {
 	const {
-		categoryFilter,
 		filters,
 		filterConfig,
 		allFilterConfig,
@@ -40,11 +39,13 @@ const ShopPage = () => {
 		productsPerPage,
 		defaultProductsPerPage,
 		setItemPerPageActive,
+		categoryFilter,
 		setCategoryFilter,
+		handleCategoryChange,
 	} = useFilter()
-	const location = useLocation()
-	const navigate = useNavigate()
-	const [filterOpenState, setFilterOpenState] = useState(false)
+	const location = useLocation();
+	const navigate = useNavigate();
+	const [filterOpenState, setFilterOpenState] = useState(false);
 	{/* ************** Get data from URL ************** */ }
 	const isInitialSync = useRef(true);
 	useEffect(() => {
@@ -89,6 +90,10 @@ const ShopPage = () => {
 				max: queryParams.get('maxPrice') || maxProductPrice,
 			});
 
+			// Устанавливаем локальную категорию из URL
+			const urlCategory = queryParams.get('category') || '';
+			setCategoryFilter(urlCategory);
+
 			isInitialSync.current = false;
 
 			setTimeout(() => {
@@ -103,7 +108,7 @@ const ShopPage = () => {
 
 		const searchParams = new URLSearchParams();
 
-		// Set filters to URL
+		// Set category to URL - используем categoryFilter из контекста
 		if (categoryFilter) {
 			searchParams.set('category', categoryFilter);
 		} else {
@@ -154,7 +159,11 @@ const ShopPage = () => {
 		searchTerm,
 	]);
 
+	// Функция для обработки выбора категории
+
+
 	const renderCategoryFilters = () => {
+		// Используем локальную категорию для рендеринга фильтров
 		const categoryFilters = filterConfig[categoryFilter?.replace(/\s+/g, '')] || allFilterConfig;
 		return categoryFilters.map((filter, index) => (
 			<CheckboxFilter
@@ -168,12 +177,16 @@ const ShopPage = () => {
 		));
 	};
 
+
 	return (
 		<>
 			<Header />
 			<main className="shop">
 				<div className="shop__container">
-					<ShopTop />
+					<ShopTop
+						selectedCategory={categoryFilter}
+						onCategoryChange={handleCategoryChange}
+					/>
 					<div className={`shop__main${filterOpenState ? " filter-opened" : ""}`}>
 						<aside className={`filters${filterOpenState ? " _active" : ""}`}>
 							<button onClick={resetFilters} className="reset-button">Reset Filters</button>
@@ -185,7 +198,7 @@ const ShopPage = () => {
 								{renderCategoryFilters()}
 							</div>
 						</aside>
-						<MianBlock setFilterOpenState={setFilterOpenState} filterOpenState={filterOpenState} />
+						<MianBlock setFilterOpenState={setFilterOpenState} filterOpenState={filterOpenState} selectedCategory={categoryFilter} />
 					</div>
 				</div>
 			</main>

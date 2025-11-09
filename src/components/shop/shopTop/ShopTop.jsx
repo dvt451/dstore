@@ -2,8 +2,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { useEffect } from 'react'
 import ShopCategories from './ShopCategories'
-
-export default function ShopTop() {
+export default function ShopTop({ selectedCategory, onCategoryChange }) {
 	gsap.registerPlugin(ScrollTrigger)
 	useEffect(() => {
 		const tl = gsap.timeline({
@@ -50,7 +49,10 @@ export default function ShopTop() {
 
 			</div>
 			<div className="shop-top-block__bottom">
-				<ShopCategories />
+				<ShopCategories
+					selectedCategory={selectedCategory}
+					onCategoryChange={onCategoryChange}
+				/>
 			</div>
 		</section>
 	)
