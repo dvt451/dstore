@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { menu } from '../../../shared/data/General'
 import { useFilter } from '../../../shared/hooks/FilterProvider'
 

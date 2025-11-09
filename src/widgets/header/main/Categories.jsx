@@ -2,7 +2,6 @@ import React from 'react'
 import { BiCategoryAlt } from "react-icons/bi";
 import { categories } from '../../../shared/data/products';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { MdComputer } from "react-icons/md";
 import { PiComputerTowerLight } from "react-icons/pi";
 import { GiSmartphone } from "react-icons/gi";

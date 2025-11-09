@@ -9,7 +9,6 @@ export default function Actions({ burgerActive }) {
 	const {
 		setIsSidebarOpen,
 		setCartSidebarState,
-		setComparisonSidebarState,
 		setFavoritesSidebarState,
 	} = useGlobalContext()
 

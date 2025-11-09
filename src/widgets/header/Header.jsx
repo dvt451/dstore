@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // For routing between pages (if you're using React Router)
-import { useCart } from '../../shared/hooks/CartProvider';
-import ToFilterPage from '../buttons/ToFilterPage';
 import Search from '../search/Search';
 import Logo from '../logo/Logo';
 import Contacts from './top/Contacts'
