@@ -44,7 +44,12 @@ const CheckoutPage = () => {
 
 			const tax = subtotal * 0.1; // Assuming 10% tax
 			const total = subtotal + tax + orderSummary.shippingCost;
-			setOrderSummary({ ...orderSummary, subtotal, tax, total });
+			setOrderSummary(prevSummary => ({
+				...prevSummary,
+				subtotal,
+				tax,
+				total
+			}));
 		};
 
 		calculateCartSummary(); // Recalculate summary whenever cart changes
@@ -74,12 +79,6 @@ const CheckoutPage = () => {
 		setCheckoutResult(true)
 		setCheckoutResultPopup(true)
 		// Show Popup of result
-	};
-
-	const handleShippingMethodChange = (method) => {
-		setShippingInfo({ ...shippingInfo, shippingMethod: method });
-		const shippingCost = method === 'Express' ? 50 : 20; // Example costs
-		setOrderSummary({ ...orderSummary, shippingCost });
 	};
 
 	return (

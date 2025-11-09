@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { createContext, useState, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
 	AccessoriesBrands,
 	AccessoriesRating,
@@ -115,15 +115,15 @@ export const FilterProvider = ({ children }) => {
 			{ label: 'Rating', name: 'ratings', items: GamingConsolesRating },
 		],
 	};
-	const priceFilterConfig = {
-		Notebooks: Math.max(...notebooks.map((p) => p.price)),
-		Computers: Math.max(...computers.map((p) => p.price)),
-		Smartphones: Math.max(...smartphones.map((p) => p.price)),
-		Displays: Math.max(...displays.map((p) => p.price)),
-		Accessories: Math.max(...accessories.map((p) => p.price)),
-		GamingConsoles: Math.max(...gamingConsoles.map((p) => p.price)),
-		Drones: Math.max(...drones.map((p) => p.price)),
-	}
+	// const priceFilterConfig = {
+	// 	Notebooks: Math.max(...notebooks.map((p) => p.price)),
+	// 	Computers: Math.max(...computers.map((p) => p.price)),
+	// 	Smartphones: Math.max(...smartphones.map((p) => p.price)),
+	// 	Displays: Math.max(...displays.map((p) => p.price)),
+	// 	Accessories: Math.max(...accessories.map((p) => p.price)),
+	// 	GamingConsoles: Math.max(...gamingConsoles.map((p) => p.price)),
+	// 	Drones: Math.max(...drones.map((p) => p.price)),
+	// }
 	const allFilterConfig = [
 		{ label: 'Brands', name: 'brands', items: allBrands },
 		{ label: 'Rating', name: 'ratings', items: allRatings },
@@ -178,14 +178,12 @@ export const FilterProvider = ({ children }) => {
 	};
 
 
-	{/* ************* ReactSlider ********************************************************************************************************* */ }
 	const handleRangePriceChange = (newPriceRange) => {
 		setPriceRange({
 			min: newPriceRange.min || '',
 			max: newPriceRange.max || maxProductPrice,
 		});
 	};
-	{/* ************* ReactSlider ********************************************************************************************************* */ }
 
 	function scrollToFilterShop() {
 		const filterSection = document.querySelector('.shop__main'); // Replace '.slider' with your section's selector

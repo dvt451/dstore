@@ -1,5 +1,5 @@
 import React from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Header from '../../widgets/header/Header';
 import Footer from '../../widgets/footer/Footer';
 import { CiHeart } from "react-icons/ci";

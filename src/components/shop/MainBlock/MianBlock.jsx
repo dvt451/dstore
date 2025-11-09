@@ -7,7 +7,6 @@ import Loading from './Loading';
 import Sort from './Sort'
 import ItemsPerPageView from './ItemsPerPageView';
 import SearchBar from './SearchBar';
-import { products } from '../../../shared/data/products';
 
 export default function MianBlock({ setFilterOpenState, filterOpenState }) {
 	const {

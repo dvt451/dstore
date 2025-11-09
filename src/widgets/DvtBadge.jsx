@@ -52,6 +52,7 @@ export default function DvtBadge() {
 		<a
 			target='_blank'
 			href='https://dvt-ten.vercel.app'
+			rel="noreferrer"
 			id="dvt"
 			style={dvtStyle}
 			onMouseEnter={() => setIsHovered(true)}

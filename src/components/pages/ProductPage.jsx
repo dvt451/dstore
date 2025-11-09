@@ -30,11 +30,11 @@ const ProductPage = () => {
 	);
 
 	// Get reviews for the product (assuming reviews data is part of the product object)
-	const reviews = product.reviews || [];
-	const avgRating =
-		reviews.length > 0
-			? reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length
-			: 0;
+	// const reviews = product.reviews || [];
+	// const avgRating =
+	// 	reviews.length > 0
+	// 		? reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length
+	// 		: 0;
 
 	const handleBuyNow = () => {
 		setOrderProductFromSingle(product, quantity); // Add only selected product to orderProduct

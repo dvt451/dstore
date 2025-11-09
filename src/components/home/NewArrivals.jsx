@@ -55,7 +55,7 @@ export default function NewArrivals() {
 									<div className="slide slide-product">
 										<div className='slide__image -ibg--contain'>
 											<ProductActions product={item} />
-											<Link to={`/product/${item.id}`}><img src={item.image} alt="Image" /></Link>
+											<Link to={`/product/${item.id}`}><img src={item.image} alt={item.name} /></Link>
 										</div>
 										<div className="slide__details">
 											<Link to={`/shop?category=${item.category}`} className="slide-product__category">{item.category}</Link>
